@@ -1,0 +1,378 @@
+@font-face {
+    font-family: Kantumruy;
+    src: url('../font/Kantumruy_Pro/KantumruyPro-VariableFont_wght.ttf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    color: white;
+    background: #ADE1F5;
+}
+
+body {
+    font-family: Kantumruy;
+    --main-color: #831717;
+    --bg-color: #F2F2F2;
+    --hover-color: rgb(216, 142, 4);
+}
+
+header {
+    background-color: #EEF2F5;
+}
+
+header .logo img {
+    width: 95px;
+}
+
+header .logo-quote {
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 980px;
+    padding: 0;
+}
+
+.menu .menu-wrapper li a {
+    color: var(--main-color) !important;
+    text-decoration: none;
+    font-size: 13px;
+    border-right: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    padding: 0px 3px;
+}
+
+.menu .menu-wrapper li a:hover {
+    border-bottom: none;
+}
+
+.navbar {
+    background-color: var(--main-color);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.navbar .navbar-wrapper li {
+    max-width: 110px;
+    height: 100%;
+    text-align: center;
+    line-height: 15px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-wrapper li:hover {
+    background-color: rgb(216, 142, 4);
+}
+
+.navbar .navbar-wrapper a {
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.offcanvas-body .navbar {
+    width: 100%;
+}
+
+.offcanvas-body .navbar .navbar-wrapper {
+    width: 100%;
+}
+
+.offcanvas-body .navbar .navbar-wrapper li {
+    max-width: 100% !important;
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: var(--main-color);
+    color: white !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color);
+}
+
+.news .image {
+    background-color: #FFF0BB;
+}
+
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-prev {
+    background-color: #fff !important;
+}
+
+.carousel-inner {
+    position: relative !important;
+}
+
+.carousel-caption {
+    position: absolute !important;
+    background-color: #0000003d;
+    width: 400px;
+    height: 100%;
+    left: 0 !important;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.carousel-item.active .carousel-caption {
+    top: 0;
+}
+
+.box {
+    min-height: 250px;
+    background-color: #F2F2F2;
+    border-top: 4px solid var(--main-color);
+    padding: 1rem;
+    margin-bottom: 15px;
+}
+
+.sidebar .box {
+    min-height: auto;
+}
+
+.news-link a {
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.news-link a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.news-link p {
+    font-size: 12.5px;
+}
+
+.hotpot {
+    background-color: #FFF0BB;
+    padding: 5px;
+    border: 1px solid var(--main-color);
+}
+
+.hotpot p {
+    font-size: 14px;
+}
+
+.hotpot p a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.notice-board li {
+    font-size: 13.5px;
+}
+
+.e-learning img {
+    width: 100%;
+}
+
+.award {
+    border: 5px solid white;
+}
+
+.student-life img {
+    border: 5px solid white;
+    float: left;
+    margin-right: 3px;
+}
+
+hr {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.border-white {
+    border: 5px solid white;
+}
+
+.frame {
+    background-color: var(--main-color);
+}
+
+.overview li {
+    width: calc(100%/5);
+}
+
+.overview li img {
+    width: 97%;
+    border: 1px solid #dfdfdf;
+}
+
+.overview p {
+    font-size: 12px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.overview p span {
+    font-size: 17px;
+    padding: 10px 0;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.bg-danger {
+    background-color: var(--main-color) !important;
+}
+
+.bg-secondary {
+    background-color: #F2F2F2 !important;
+}
+
+.btn-danger {
+    background-color: var(--main-color) !important;
+}
+
+footer .box {
+    min-height: 50px !important;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+.document table tr th {
+    padding: 5px;
+    background-color: #CCCCCC;
+    border-right: 2px solid white;
+    text-align: center;
+
+}
+
+.document table tr td {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.document table tr th:nth-child(1) {
+    width: 55%;
+}
+
+.document table tr th:nth-child(2) {
+    width: 10%;
+}
+
+.document table tr th:nth-child(3) {
+    width: 10%;
+}
+
+.document table tr th:nth-child(4) {
+    width: 25%;
+}
+
+.paragraph {
+    word-wrap: break-word;
+}
+
+.paragraph p {
+    font-size: 13px;
+}
+
+/* Extra large devices - xl (large desktops, 992px to 1200px) */
+@media (max-width: 1200px) {}
+
+/* Large devices - lg (tablets to desktops, 768px to 992px) */
+@media (max-width: 992px) {
+    header .logo img {
+        width: 65px;
+    }
+
+    .menu .menu-wrapper {
+        padding-bottom: 10px;
+    }
+
+    .menu .menu-wrapper li a {
+        font-size: 11px !important;
+    }
+
+    .container {
+        min-width: 95%;
+    }
+
+    .navbar .title {
+        color: white !important;
+    }
+}
+
+/* Medium devices - md (phones to tablets, 576px to 768px) */
+@media (max-width: 768px) {
+    .container {
+        min-width: 95%;
+    }
+
+    header .logo img {
+        width: 50px;
+    }
+
+    .overview p span {
+        font-size: 14px;
+    }
+}
+
+/* Small devices - sm (phones, up to 576px) */
+@media (max-width: 576px) {
+    .container {
+        max-width: 95% !important;
+    }
+
+}
