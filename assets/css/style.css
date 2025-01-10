@@ -48,8 +48,12 @@ a {
 }
 
 .container {
-    width: 980px;
+    width: 1200px;
     padding: 0;
+}
+
+.text-main {
+    color: #831717;
 }
 
 .menu .menu-wrapper li a {
@@ -169,10 +173,17 @@ swiper-slide img {
 
 .box {
     min-height: 250px;
-    background-color: #F2F2F2;
+    /* background-color: #F2F2F2; */
+    background-color: #f5e5e5;
     border-top: 4px solid var(--main-color);
     padding: 1rem;
     margin-bottom: 15px;
+    box-shadow: 1px 1px 5px #ddd;
+}
+
+.box:hover {
+    background-color: #ddd;
+    box-shadow: 1px 1px 6px #ddd;
 }
 
 .sidebar .box {

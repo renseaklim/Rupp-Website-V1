@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal University of Phnom Penh</title>
+    <link rel="shortcut icon" href="/assets/img/rupp_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .overview img {
+            width: 100px;
+        }
+
+        .offcanvas {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background-color: #8B0000;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .offcanvas.active {
+            left: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+    <header class="bg-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img src="/assets/img/rupp_logo.png" alt="RUPP Logo" class="w-20 h-20">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-xl font-bold">សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ</h1>
+                        <p class="text-sm text-gray-600">ROYAL UNIVERSITY OF PHNOM PENH</p>
+                    </div>
+                </div>
+                <button id="menuToggle" class="lg:hidden text-[#8B0000]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bg-[#8B0000] text-white hidden lg:block">
+            <div class="container mx-auto px-4">
+                <ul class="flex justify-start gap-4 py-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-200">FACULTY OF SCIENCE</a></li>
+                    <li><a href="#" class="hover:text-gray-200">FACULTY OF SOCIAL SCIENCE</a></li>
+                    <li><a href="#" class="hover:text-gray-200">FACULTY OF ENGINEERING</a></li>
+                    <li><a href="#" class="hover:text-gray-200">CENTERS</a></li>
+                    <li><a href="#" class="hover:text-gray-200">OFFICES</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Off-canvas Menu -->
+    <div id="offcanvasMenu" class="offcanvas">
+        <div class="p-4">
+            <button id="closeMenu" class="text-white mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-white hover:text-gray-200">FACULTY OF SCIENCE</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200">FACULTY OF SOCIAL SCIENCE</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200">FACULTY OF ENGINEERING</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200">CENTERS</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200">OFFICES</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <section class="slider">
+        <div class="slide active">
+            <img src="/assets/img/slider-img/slide1.jpg" alt="University Campus" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-white text-4xl font-bold text-center">Welcome to Royal University of Phnom Penh</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/assets/img/slider-img/slide2.jpg" alt="Students in Library" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-white text-4xl font-bold text-center">Empowering Minds, Shaping Futures</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/assets/img/slider-img/slide3.jpg" alt="Graduation Ceremony" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-white text-4xl font-bold text-center">Celebrating Academic Excellence</h2>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4 text-[#8B0000]">UNIVERSITY NEWS</h2>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <h3 class="font-semibold">Job Fair 2024</h3>
+                        <p class="text-sm text-gray-600">Posted: 2024-01-01</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4 text-[#8B0000]">SCHOLARSHIP</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Higher Education for ASEAN Talents</li>
+                    <li>Japanese Government Scholarship</li>
+                    <li>JICA Scholarship for CLMV Countries</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4 text-[#8B0000]">NOTICE BOARD</h2>
+                <ul class="space-y-2">
+                    <li>New Intake of Master Program in IT Engineering</li>
+                    <li>New Intake of Master's Program in Development Studies</li>
+                    <li>New Intake of Master Program in Education</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#8B0000]">Academic Programs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Undergraduate Programs</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Bachelor of Science in Computer Science</li>
+                        <li>Bachelor of Arts in Economics</li>
+                        <li>Bachelor of Engineering in Civil Engineering</li>
+                        <li>Bachelor of Arts in International Relations</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Graduate Programs</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Master of Science in Environmental Science</li>
+                        <li>Master of Business Administration</li>
+                        <li>Master of Arts in TESOL</li>
+                        <li>PhD in Development Studies</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Short Courses</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Certificate in Data Science</li>
+                        <li>Diploma in Project Management</li>
+                        <li>Certificate in Digital Marketing</li>
+                        <li>Intensive English Program</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#8B0000]">Research at RUPP</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <img src="/assets/img/Render flag.jpg" alt="Research Lab"
+                        class="w-full h-64 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Cutting-edge Research Facilities</h3>
+                    <p class="text-gray-700">Our state-of-the-art laboratories and research centers provide the perfect
+                        environment for groundbreaking discoveries and innovations.</p>
+                </div>
+                <div>
+                    <img src="/assets/img/studentlife.jpg" alt="Research Collaboration"
+                        class="w-full h-64 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Collaborative Research Projects</h3>
+                    <p class="text-gray-700">We foster interdisciplinary collaboration and partnerships with industry
+                        leaders to address real-world challenges and drive societal impact.</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#"
+                    class="inline-block bg-[#8B0000] text-white px-6 py-3 rounded-lg hover:bg-[#6B0000] transition duration-300">Explore
+                    Our Research</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Life Section -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#8B0000]">Student Life</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <img src="/assets/img/scholarship.jpg" alt="Student Clubs"
+                        class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Student Clubs</h3>
+                    <p class="text-gray-700">Join one of our many student-led organizations and pursue your passions
+                        outside the classroom.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <img src="/assets/img/student.jpg" alt="Sports Facilities"
+                        class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Social participation</h3>
+                    <p class="text-gray-700">Stay active and healthy with our modern sports facilities and intramural
+                        leagues.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <img src="/assets/img/social.jpg" alt="Cultural Events"
+                        class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Cultural Events</h3>
+                    <p class="text-gray-700">Experience the rich diversity of our campus community through various
+                        cultural celebrations and events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#8B0000]">Admissions</h2>
+            <div class="bg-white p-8 rounded-lg shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Application Process</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Submit online application</li>
+                            <li>Provide academic transcripts</li>
+                            <li>Submit standardized test scores</li>
+                            <li>Write a personal statement</li>
+                            <li>Attend an interview (if required)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Important Dates</h3>
+                        <ul class="space-y-2">
+                            <li><strong>Application Deadline:</strong> May 1, 2024</li>
+                            <li><strong>Document Submission:</strong> June 15, 2024</li>
+                            <li><strong>Admission Results:</strong> July 30, 2024</li>
+                            <li><strong>Orientation Week:</strong> August 20-27, 2024</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="#"
+                        class="inline-block bg-[#8B0000] text-white px-6 py-3 rounded-lg hover:bg-[#6B0000] transition duration-300">Apply
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 overview">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8 text-[#8B0000]">Overview of University</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+                <div class="flex flex-col items-center justify-center">
+                    <img src="/assets/img/Date-calendar.png" alt="">
+                    <div class="text-4xl font-bold text-[#8B0000]">1960</div>
+                    <div class="text-sm">Established year</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="/assets/img/Workers-team.png" alt="">
+                    <div class="text-4xl font-bold text-[#8B0000]">1140</div>
+                    <div class="text-sm">Staff</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="/assets/img/Student-book.png" alt="">
+                    <div class="text-4xl font-bold text-[#8B0000]">30071</div>
+                    <div class="text-sm">Students</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="/assets/img/Alumni_1.png" alt="">
+                    <div class="text-4xl font-bold text-[#8B0000]">68887</div>
+                    <div class="text-sm">Alumni</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="/assets/img/Collaboration.png" alt="">
+                    <div class="text-4xl font-bold text-[#8B0000]">222</div>
+                    <div class="text-sm">Int. Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-12">
+        <div class="bg-white p-8 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4 text-[#8B0000]">EDUCATIONAL PHILOSOPHY</h2>
+            <p class="text-gray-700 leading-relaxed">
+                The RUPP university of Cambodia aims to be a leading institution of excellence that aims
+                to develop human capital resources with critical reasoning and ethical decision-making skills,
+                research and innovative skills, well-rounded education in diverse cultural settings, awareness of the
+                potential needs of society and the region, and able students to the workforce or to create jobs and
+                develop themselves to be professionals.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#8B0000] text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="font-bold mb-4">Find RUPP on:</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-gray-200">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Subscribe to the RUPP Newsletter</h3>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Your email address"
+                            class="flex-1 px-3 py-2 rounded text-black">
+                        <button class="bg-white text-[#8B0000] px-4 py-2 rounded hover:bg-gray-100">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-sm">
+                <p>All Rights Reserved. Copyright © 2023 Royal University of Phnom Penh (RUPP)</p>
+                <p>Russian Federation Boulevard, Toul Kork, Phnom Penh, Cambodia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Off-canvas menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const offcanvasMenu = document.getElementById('offcanvasMenu');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            offcanvasMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
+
+</body>
+
+</html>
